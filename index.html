@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manohar - UI/UX Designer & Software Engineer</title>
+    <style>
+        :root {
+            --primary: #2158D4;
+            --primary-hover: #1a44a8;
+            --primary-light: #e3f2fd;
+            --secondary: #667eea;
+            --dark: #1a202c;
+            --gray-900: #111827;
+            --gray-800: #1f2937;
+            --gray-700: #374151;
+            --gray-600: #4b5563;
+            --gray-500: #6b7280;
+            --gray-400: #9ca3af;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --gray-50: #f9fafb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --border-color: #e5e7eb;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --bg-light: #ffffff;
+            --bg-darker: #f9fafb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(227, 242, 253, 0.5) 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+            line-height: 1.2;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-size: 1rem;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-light);
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--gray-900);
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-darker);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .skill-item strong {
+            color: var(--gray-900);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .skill-item span {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .experience-item:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+
+        .exp-header h3 {
+            font-size: 1.25rem;
+            color: var(--gray-900);
+            margin: 0;
+        }
+
+        .exp-period {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .exp-company {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .exp-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .exp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--bg-darker);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            color: var(--gray-900);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            flex: 1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-tag {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Skills Section */
+        .skills {
+            background: white;
+        }
+
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: var(--bg-darker);
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary);
+        }
+
+        .skill-category h3 {
+            color: var(--gray-900);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            color: var(--text-secondary);
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .skill-category li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .skills-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Certifications Section */
+        .certifications {
+            background: var(--bg-darker);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .cert-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .cert-card h3 {
+            color: var(--gray-900);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .cert-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-title span {
+            color: var(--gray-200);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .contact-cta {
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--gray-800);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-link {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        /* Smooth transitions */
+        a, button {
+            transition: var(--transition);
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <a href="#home" class="logo">M</a>
+                <ul class="nav-links">
+                    <li><a onclick="scrollToSection('hero')">About</a></li>
+                    <li><a onclick="scrollToSection('experience')">Experience</a></li>
+                    <li><a onclick="scrollToSection('projects')">Projects</a></li>
+                    <li><a onclick="scrollToSection('skills')">Skills</a></li>
+                    <li><a onclick="scrollToSection('contact')">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="subtitle">UI/UX Designer & Software Engineer</p>
+                    <h1>Manohar</h1>
+                    <p>Design-driven full-stack engineer specializing in end-to-end product experiences. Expertise in responsive web design, interactive prototypes, design systems, and translating complex requirements into intuitive user interfaces using Blazor, React, and modern web technologies.</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#projects" class="btn btn-secondary">View My Work</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div style="width: 250px; height: 250px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <span style="font-size: 100px; opacity: 0.3;">👤</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Bridging Design & Engineering</h3>
+                    <p>With 6+ years of experience, I've led design initiatives at Citizens Financial and Arizona State University, translating complex product requirements into intuitive, accessible user experiences.</p>
+                    <p>My journey spans UI/UX design (Figma, prototyping), full-stack development (Blazor, React, .NET), and data-driven decision making. I'm passionate about creating scalable design systems, conducting user research, and collaborating across cross-functional teams.</p>
+                    <p>Currently exploring AI applications and building products that make a real impact.</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>Design Expertise</strong>
+                        <span>Figma, Wireframes, Prototypes, Design Systems</span>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Frontend</strong>
+                        <span>Blazor, React, HTML5, CSS3, JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Backend</strong>
+                        <span>.NET Core, C#, Python, Django, FastAPI</span>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Cloud & Data</strong>
+                        <span>AWS, GCP, Azure, SQL, BigQuery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional <span>Experience</span></h2>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>UI/UX Designer & Software Engineer</h3>
+                        <p class="exp-company">Citizens Financial — Tempe, AZ</p>
+                    </div>
+                    <span class="exp-period">Jun 2024 - Present</span>
+                </div>
+                <p class="exp-description">Designed end-to-end responsive web and mobile experiences for Citizens' digital banking channels including account dashboards, payments, and bill-pay. Created user flows, wireframes, and high-fidelity prototypes. Contributed to Citizens Design System with reusable components and patterns. Collaborated with front-end engineers to ensure designs were feasible, performant, and accessible per WCAG standards.</p>
+                <div class="exp-tags">
+                    <span class="tag">Figma</span>
+                    <span class="tag">UX Research</span>
+                    <span class="tag">Design Systems</span>
+                    <span class="tag">Accessibility</span>
+                    <span class="tag">Agile</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Software Engineer</h3>
+                        <p class="exp-company">Arizona State University (Pat Tillman Veterans Center) — Phoenix, AZ</p>
+                    </div>
+                    <span class="exp-period">Sep 2023 - May 2024</span>
+                </div>
+                <p class="exp-description">Designed and refined end-to-end experiences for ASU's public and student-facing digital properties. Conducted UX research including student interviews, card sorts, and usability testing. Partnered with instructional designers to improve online course interfaces. Applied human-centered design principles and WCAG accessibility standards. Documented reusable UI patterns for shared ASU web standards.</p>
+                <div class="exp-tags">
+                    <span class="tag">Information Architecture</span>
+                    <span class="tag">Figma</span>
+                    <span class="tag">User Research</span>
+                    <span class="tag">WCAG</span>
+                    <span class="tag">Higher Ed UX</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Software Engineer - Front End</h3>
+                        <p class="exp-company">Epics — Tempe, AZ</p>
+                    </div>
+                    <span class="exp-period">Aug 2022 - Aug 2023</span>
+                </div>
+                <p class="exp-description">Developed and maintained customer-facing e-commerce features using Blazor WebAssembly and C#. Built reusable Blazor components for product listings, shopping cart, and checkout flows. Integrated Blazor front end with RESTful APIs and backend .NET services. Implemented dynamic search, filtering, and sorting for large product catalogs. Optimized front-end performance through profiling, lazy-loading, and reducing network payloads.</p>
+                <div class="exp-tags">
+                    <span class="tag">Blazor WASM</span>
+                    <span class="tag">C#</span>
+                    <span class="tag">.NET Core</span>
+                    <span class="tag">E-commerce</span>
+                    <span class="tag">Performance</span>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Data Analyst</h3>
+                        <p class="exp-company">Tata Consultancy Services — Remote</p>
+                    </div>
+                    <span class="exp-period">Jul 2021 - Jul 2022</span>
+                </div>
+                <p class="exp-description">Designed and developed responsive web interfaces using HTML5, CSS3 Flexbox/Grid, and modern JavaScript. Translated UI/UX wireframes from Figma into pixel-perfect layouts. Implemented modular, reusable JavaScript components for data tables, dashboards, and wizards. Developed RESTful APIs in Python using Django framework with backend services for user management and workflow orchestration.</p>
+                <div class="exp-tags">
+                    <span class="tag">HTML5/CSS3</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Django</span>
+                    <span class="tag">Full Stack</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured <span>Projects</span></h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🎨</div>
+                    <div class="project-content">
+                        <h3>Citizens Design System</h3>
+                        <p>Designed and documented a scalable design system with reusable components, color tokens, typography scales, and interaction patterns for Citizens Financial's digital banking platform.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Figma</span>
+                            <span class="project-tag">Design System</span>
+                            <span class="project-tag">Banking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">💳</div>
+                    <div class="project-content">
+                        <h3>Digital Banking Dashboard</h3>
+                        <p>Designed complex, data-heavy dashboard interfaces with advanced filtering and reporting capabilities. Ensured accessibility compliance and usability for diverse customer needs.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Dashboard</span>
+                            <span class="project-tag">Data Viz</span>
+                            <span class="project-tag">WCAG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🛒</div>
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Built end-to-end e-commerce platform using Blazor WebAssembly with dynamic product search, filtering, shopping cart, and checkout flows. Optimized for performance and conversion.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Blazor WASM</span>
+                            <span class="project-tag">E-commerce</span>
+                            <span class="project-tag">Performance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🎓</div>
+                    <div class="project-content">
+                        <h3>ASU Digital Experience</h3>
+                        <p>Redesigned ASU's student-facing platform with improved information architecture, navigation clarity, and accessibility. Conducted extensive user research with students and faculty.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">UX Research</span>
+                            <span class="project-tag">Higher Ed</span>
+                            <span class="project-tag">IA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
+                        <h3>Analytics Dashboard</h3>
+                        <p>Developed comprehensive analytics dashboard with real-time data visualization, custom reporting, and drill-down capabilities using React and D3.js.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Data Viz</span>
+                            <span class="project-tag">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🔐</div>
+                    <div class="project-content">
+                        <h3>Authentication System</h3>
+                        <p>Designed and built secure authentication flows with multi-factor support, role-based access control, and comprehensive error handling. Collaborated with security and backend teams.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Security</span>
+                            <span class="project-tag">.NET Core</span>
+                            <span class="project-tag">Auth</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical <span>Skills</span></h2>
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>Blazor WebAssembly</li>
+                        <li>React & TypeScript</li>
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript/ES6+</li>
+                        <li>Responsive Design</li>
+                        <li>Accessibility (WCAG)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend & Tools</h3>
+                    <ul>
+                        <li>.NET Core & C#</li>
+                        <li>Python & Django</li>
+                        <li>RESTful APIs</li>
+                        <li>FastAPI</li>
+                        <li>SQL & Databases</li>
+                        <li>CI/CD Pipelines</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Cloud & Design</h3>
+                    <ul>
+                        <li>AWS & GCP</li>
+                        <li>Azure</li>
+                        <li>Figma</li>
+                        <li>Design Systems</li>
+                        <li>UX Research</li>
+                        <li>Prototyping</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & <span>Awards</span></h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">☁️</div>
+                    <h3>GCP Certified Data Engineer</h3>
+                    <p>Professional Level Certification</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🏗️</div>
+                    <h3>AWS Solutions Architect</h3>
+                    <p>Associate Level Certification</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📊</div>
+                    <h3>AWS Data Engineer</h3>
+                    <p>Associate Level Certification</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Work <span>Together</span></h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="mailto:manoharv2401@gmail.com">manoharv2401@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Location</strong>
+                    <span>Tempe, Arizona</span>
+                </div>
+                <div class="contact-item">
+                    <strong>LinkedIn</strong>
+                    <a href="#" target="_blank">https://www.linkedin.com/in/manoharv24/</a>
+                </div>
+            </div>
+            <div class="contact-cta">
+                <a href="mailto:manoharv2401@gmail.com" class="btn btn-secondary">Send me an email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="footer-link">GitHub</a>
+                <a href="#" class="footer-link">LinkedIn</a>
+                <a href="#" class="footer-link">Twitter</a>
+                <a href="#" class="footer-link">Resume</a>
+            </div>
+            <p>&copy; 2025 Manohar. All rights reserved. Crafted with ❤️</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Add active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.clientHeight;
+                if (window.scrollY >= top - 200 && window.scrollY < top + height - 200) {
+                    navLinks.forEach(link => link.style.color = 'var(--text-primary)');
+                }
+            });
+        });
+
+        // Smooth reveal animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.experience-item, .project-card, .skill-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
